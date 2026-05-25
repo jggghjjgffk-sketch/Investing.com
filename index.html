@@ -2,48 +2,56 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Investing.com | منصة التداول</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investing.com | واجهة احترافية</title>
     <style>
-        body { font-family: sans-serif; background-color: #0b0e11; color: white; margin: 0; padding: 0; text-align: center; }
-        .hero { padding: 40px 20px; }
-        h1 { color: #00d09c; }
-        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; }
-        .card { background: #1e2329; padding: 20px; border-radius: 15px; border: 1px solid #333; }
-        .btn { display: block; background: #00d09c; color: black; padding: 10px; border-radius: 5px; text-decoration: none; margin-top: 10px; font-weight: bold; }
+        body { font-family: sans-serif; background-color: #0b0e11; color: white; margin: 0; padding-bottom: 70px; }
+        .header { padding: 20px; text-align: center; color: #00d09c; font-weight: bold; font-size: 20px; border-bottom: 1px solid #333; }
+        
+        /* تصميم الباقات */
+        .vip-container { padding: 20px; }
+        .card { background: #1e2329; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #444; }
+        .btn-blue { background: #3498db; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        .btn-yellow { background: #f1c40f; color: black; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; }
+
+        /* القائمة السفلية */
+        .navbar { position: fixed; bottom: 0; width: 100%; background: #1a1a1a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #333; }
+        .nav-item { color: #888; text-decoration: none; font-size: 14px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>Investing.com</h1>
-        <p>المنصة الأسرع والأكثر أماناً لتداول الذهب والعملات.</p>
+    <div class="header">NEWMONT PRO - باقات VIP</div>
+
+    <div class="vip-container">
+        <div class="card">
+            <h3>VIP 1</h3>
+            <p>السعر: 30 USDT</p>
+            <button class="btn-blue" onclick="alert('العنوان: Txyz123...')">فتح المستوى</button>
+        </div>
+        <div class="card">
+            <h3>VIP 2</h3>
+            <p>السعر: 80 USDT</p>
+            <button class="btn-yellow" onclick="alert('العنوان: Txyz123...')">فتح المستوى</button>
+        </div>
+        <div class="card">
+            <h3>VIP 3</h3>
+            <p>السعر: 150 USDT</p>
+            <button class="btn-blue" onclick="alert('العنوان: Txyz123...')">فتح المستوى</button>
+        </div>
+        <div class="card">
+            <h3>VIP 4</h3>
+            <p>السعر: 300 USDT</p>
+            <button class="btn-yellow" onclick="alert('العنوان: Txyz123...')">فتح المستوى</button>
+        </div>
     </div>
 
-    <div style="height: 350px; padding: 10px;">
-        <iframe src="https://www.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=D&theme=dark" width="100%" height="100%"></iframe>
-    </div>
-
-    <div class="pricing">
-        <div class="card">
-            <h3>الباقة البرونزية</h3>
-            <p>السعر: 30$</p>
-            <a href="https://t.me/your_username" class="btn">اشترك الآن</a>
-        </div>
-        <div class="card">
-            <h3>الباقة الفضية</h3>
-            <p>السعر: 80$</p>
-            <a href="https://t.me/your_username" class="btn">اشترك الآن</a>
-        </div>
-        <div class="card">
-            <h3>الباقة الذهبية</h3>
-            <p>السعر: 150$</p>
-            <a href="https://t.me/your_username" class="btn">اشترك الآن</a>
-        </div>
-        <div class="card">
-            <h3>باقة VIP</h3>
-            <p>السعر: 300$</p>
-            <a href="https://t.me/your_username" class="btn">اشترك الآن</a>
-        </div>
+    <div class="navbar">
+        <a href="#" class="nav-item">حسابي</a>
+        <a href="#" class="nav-item">الفريق</a>
+        <a href="#" class="nav-item">VIP</a>
+        <a href="#" class="nav-item">مهام</a>
+        <a href="#" class="nav-item">الواجهة</a>
     </div>
 
 </body>
