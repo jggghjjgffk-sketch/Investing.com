@@ -1,214 +1,51 @@
-import React from 'react';
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | Investing.com</title>
+    <style>
+        body { font-family: sans-serif; background-color: #0b0e11; color: white; margin: 0; }
+        .auth-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; padding: 20px; }
+        input { width: 100%; padding: 15px; margin: 10px 0; border-radius: 10px; border: none; background: #1e2329; color: white; }
+        .btn-main { background: #00d09c; color: black; padding: 15px 40px; border-radius: 10px; font-weight: bold; cursor: pointer; border: none; width: 100%; }
+        
+        /* إخفاء المنصة عند الفتح */
+        #main-app { display: none; padding-bottom: 80px; }
+        .page { display: none; }
+        .active { display: block; }
+        .nav { position: fixed; bottom: 0; width: 100%; background: #1a1a1a; display: flex; justify-content: space-around; padding: 15px; }
+    </style>
+</head>
+<body>
 
-export default function TradingPlatform() { const market = [ { pair: 'BTC/USDT', price: '$108,420', change: '+2.4%' }, { pair: 'ETH/USDT', price: '$4,820', change: '+1.8%' }, { pair: 'BNB/USDT', price: '$820', change: '+3.1%' }, { pair: 'SOL/USDT', price: '$212', change: '+5.4%' }, { pair: 'XRP/USDT', price: '$2.81', change: '+2.9%' }, { pair: 'DOGE/USDT', price: '$0.42', change: '+6.2%' }, ];
-
-const plans = [30, 60, 90, 120, 200];
-
-return ( <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-zinc-950 text-white p-6"> <div className="max-w-7xl mx-auto space-y-8">
-
-{/* Header */}
-    <div className="bg-zinc-900/80 backdrop-blur-xl border border-zinc-800 rounded-3xl p-6 shadow-2xl">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div>
-          <h1 className="text-5xl font-bold text-green-400">MY TRADE</h1>
-          <p className="text-zinc-400 mt-2 text-lg">
-            منصة نسخ صفقات حديثة لجميع العملات الرقمية
-          </p>
-        </div>
-
-        <div className="flex gap-4">
-          <button className="bg-zinc-800 hover:bg-zinc-700 px-6 py-3 rounded-2xl font-bold transition-all">
-            تسجيل الدخول بالإيميل
-          </button>
-
-          <button className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-2xl font-bold transition-all text-black">
-            إنشاء حساب
-          </button>
-        </div>
-      </div>
+    <div id="login-page" class="auth-container">
+        <h1>مرحباً بك في Investing.com</h1>
+        <input type="text" placeholder="البريد الإلكتروني">
+        <input type="password" placeholder="كلمة المرور">
+        <button class="btn-main" onclick="login()">تسجيل الدخول</button>
     </div>
 
-    {/* Market */}
-    <div>
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold">السوق المباشر</h2>
-        <div className="bg-green-500/20 text-green-400 px-4 py-2 rounded-xl border border-green-500/30">
-          Live Market
+    <div id="main-app">
+        <div id="home" class="page active">
+            <h2 style="text-align:center; color:#00d09c;">الواجهة الرئيسية</h2>
+            <div style="height: 250px;"><iframe src="https://www.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=D&theme=dark" width="100%" height="100%"></iframe></div>
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {market.map((item, index) => (
-          <div
-            key={index}
-            className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 hover:scale-105 transition-all duration-300 shadow-xl"
-          >
-            <div className="flex justify-between items-center">
-              <div>
-                <h3 className="text-2xl font-bold">{item.pair}</h3>
-                <p className="text-zinc-400 mt-2">السعر الحالي</p>
-              </div>
-
-              <div className="text-right">
-                <div className="text-2xl font-bold">{item.price}</div>
-                <div className="text-green-400 mt-2">{item.change}</div>
-              </div>
-            </div>
-
-            <div className="mt-6 h-24 rounded-2xl bg-gradient-to-r from-green-500/20 to-blue-500/20 flex items-center justify-center text-zinc-400">
-              الرسم البياني
-            </div>
-          </div>
-        ))}
-      </div>
+        
+        <div class="nav">
+            <button onclick="showPage('home')">الواجهة</button>
+        </div>
     </div>
 
-    {/* Plans */}
-    <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-2xl">
-      <h2 className="text-3xl font-bold mb-8">خطط الاشتراك</h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
-        {plans.map((plan, index) => (
-          <div
-            key={index}
-            className="bg-zinc-800 rounded-3xl p-6 text-center border border-zinc-700 hover:border-green-500 hover:scale-105 transition-all duration-300"
-          >
-            <div className="text-5xl font-bold text-green-400">${plan}</div>
-
-            <div className="mt-4 text-zinc-400">
-              اشتراك تداول ونسخ صفقات
-            </div>
-
-            <div className="mt-6 space-y-2 text-sm text-zinc-300">
-              <p>أرباح يومية</p>
-              <p>نسخ صفقات تلقائي</p>
-              <p>دعم مباشر</p>
-            </div>
-
-            <button className="mt-6 w-full bg-green-500 hover:bg-green-600 py-3 rounded-2xl font-bold text-black">
-              اشترك الآن
-            </button>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Tasks */}
-    <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-2xl">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold">المهام اليومية</h2>
-
-        <div className="bg-yellow-500 text-black px-5 py-2 rounded-xl font-bold">
-          مهمة واحدة يومياً
-        </div>
-      </div>
-
-      <div className="bg-zinc-800 rounded-3xl p-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div>
-          <h3 className="text-2xl font-bold">ابدأ مهمتك الآن</h3>
-          <p className="text-zinc-400 mt-2">
-            أكمل المهمة اليومية لتحصل على مكافأة إضافية.
-          </p>
-        </div>
-
-        <button className="bg-purple-500 hover:bg-purple-600 px-8 py-4 rounded-2xl font-bold text-lg">
-          بدء المهمة
-        </button>
-      </div>
-    </div>
-
-    {/* Referral */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-        <h2 className="text-3xl font-bold mb-5">رمز الإحالة</h2>
-
-        <div className="bg-zinc-800 rounded-2xl p-5 flex justify-between items-center">
-          <span className="text-green-400 text-2xl font-bold">
-            VIP-93822
-          </span>
-
-          <button className="bg-blue-500 hover:bg-blue-600 px-5 py-2 rounded-xl font-bold">
-            نسخ
-          </button>
-        </div>
-      </div>
-
-      <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-        <h2 className="text-3xl font-bold mb-5">الرابط الشخصي</h2>
-
-        <div className="bg-zinc-800 rounded-2xl p-5 flex justify-between items-center gap-3">
-          <span className="text-zinc-300 overflow-hidden text-sm">
-            https://mytrade.com/ref/VIP93822
-          </span>
-
-          <button className="bg-blue-500 hover:bg-blue-600 px-5 py-2 rounded-xl font-bold whitespace-nowrap">
-            نسخ
-          </button>
-        </div>
-      </div>
-    </div>
-
-    {/* Profile */}
-    <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-2xl">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-        <div>
-          <h2 className="text-3xl font-bold">الملف الشخصي</h2>
-          <p className="text-zinc-400 mt-2">
-            إدارة الحساب والمعاملات
-          </p>
-        </div>
-
-        <div className="bg-green-500 text-black px-8 py-4 rounded-2xl text-2xl font-bold">
-          الرصيد: $5,420
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        {['الإيداع', 'السحب', 'المعاملات', 'الأرباح'].map((item, index) => (
-          <button
-            key={index}
-            className="bg-zinc-800 hover:bg-zinc-700 p-6 rounded-2xl text-xl font-bold transition-all"
-          >
-            {item}
-          </button>
-        ))}
-      </div>
-
-      <div className="bg-zinc-800 rounded-3xl p-6 overflow-x-auto">
-        <table className="w-full text-right">
-          <thead>
-            <tr className="border-b border-zinc-700">
-              <th className="pb-4">العملية</th>
-              <th className="pb-4">القيمة</th>
-              <th className="pb-4">الحالة</th>
-              <th className="pb-4">التاريخ</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr className="border-b border-zinc-700">
-              <td className="py-4">إيداع</td>
-              <td>$500</td>
-              <td className="text-green-400">مكتمل</td>
-              <td>2026/05/25</td>
-            </tr>
-
-            <tr>
-              <td className="py-4">سحب</td>
-              <td>$120</td>
-              <td className="text-yellow-400">قيد المراجعة</td>
-              <td>2026/05/24</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    {/* Footer */}
-    <div className="text-center py-6 text-zinc-500 border-t border-zinc-800">
-      © 2026 MY TRADE جميع الحقوق محفوظة
-    </div>
-  </div>
-</div>
-
-); }
+    <script>
+        function login() {
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('main-app').style.display = 'block';
+        }
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
