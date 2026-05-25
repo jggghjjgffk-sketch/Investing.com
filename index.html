@@ -2,51 +2,41 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investing.com | منصة التداول الذكي</title>
+    <title>Investing.com | منصة التداول</title>
     <style>
-        :root {
-            --primary-color: #00d09c;
-            --dark-bg: #0b0e11;
-            --text-color: #ffffff;
-        }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--dark-bg); color: var(--text-color); margin: 0; padding: 0; }
-        
-        /* الناف بار */
-        nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
-        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); }
-        
-        /* القسم الرئيسي */
-        .hero { text-align: center; padding: 100px 20px; }
-        h1 { font-size: 48px; margin-bottom: 20px; }
-        p { font-size: 18px; color: #aaa; max-width: 600px; margin: 0 auto 30px; }
-        
-        .btn { background-color: var(--primary-color); color: #000; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 18px; transition: 0.3s; }
-        .btn:hover { background-color: #00b387; }
-        
-        /* بطاقات الميزات */
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 50px; }
-        .card { background: #1e2329; padding: 30px; border-radius: 15px; text-align: center; }
+        body { font-family: sans-serif; background-color: #0b0e11; color: white; margin: 0; padding: 0; text-align: center; }
+        .hero { padding: 50px 20px; }
+        h1 { color: #00d09c; }
+        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+        .card { background: #1e2329; padding: 20px; border-radius: 15px; border: 1px solid #333; }
+        .btn { display: block; background: #00d09c; color: black; padding: 10px; border-radius: 5px; text-decoration: none; margin-top: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">Investing.com</div>
-    <div>عربي</div>
-</nav>
+    <div class="hero">
+        <h1>Investing.com</h1>
+        <p>المنصة الأسرع والأكثر أماناً لتداول الذهب والعملات.</p>
+    </div>
 
-<div class="hero">
-    <h1>مستقبل التداول بين يديك</h1>
-    <p>حلل، تداول، وانسخ صفقات المحترفين بضغطة زر واحدة. منصة آمنة، سريعة، ومتطورة.</p>
-    <a href="#" class="btn">ابدأ رحلة التداول</a>
-</div>
+    <div style="height: 400px; padding: 20px;">
+        <iframe src="https://www.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=D&theme=dark" width="100%" height="100%"></iframe>
+    </div>
 
-<div class="features">
-    <div class="card"><h3>تحليل فني دقيق</h3><p>أدوات متطورة لكل الأسواق.</p></div>
-    <div class="card"><h3>نسخ الصفقات</h3><p>لا تحتاج لخبرة، انسخ المحترفين.</p></div>
-    <div class="card"><h3>حماية عالية</h3><p>تداول بأمان مطلق.</p></div>
-</div>
+    <div class="pricing">
+        <div class="card">
+            <h3>الباقة الأساسية</h3>
+            <p>السعر: 30$</p>
+            <p>الربح اليومي: 20%</p>
+            <a href="#" class="btn">اشترك الآن</a>
+        </div>
+        <div class="card">
+            <h3>الباقة الذهبية</h3>
+            <p>السعر: 80$</p>
+            <p>الربح اليومي: 20%</p>
+            <a href="#" class="btn">اشترك الآن</a>
+        </div>
+    </div>
 
 </body>
 </html>
