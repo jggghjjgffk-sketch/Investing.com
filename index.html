@@ -5,50 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newmont Pro</title>
     <style>
-        body { font-family: sans-serif; background-color: #0b0e11; color: white; margin: 0; padding-bottom: 80px; }
-        .page { display: none; }
+        body { background-color: #0b0e11; color: white; margin: 0; font-family: sans-serif; }
+        .page { display: none; padding: 20px; padding-bottom: 100px; }
         .active { display: block; }
-        .header { text-align: center; padding: 20px; font-weight: bold; font-size: 18px; border-bottom: 1px solid #333; }
-        
-        /* كروت الباقات */
-        .vip-card { background: #161a20; border: 1px solid #333; border-radius: 15px; padding: 20px; margin: 15px; }
-        .btn { width: 100%; padding: 12px; border-radius: 10px; border: none; font-weight: bold; margin-top: 10px; cursor: pointer; }
-        
-        /* القائمة */
         .navbar { position: fixed; bottom: 0; width: 100%; background: #1a1a1a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #333; }
-        .nav-item { color: #888; font-size: 12px; text-align: center; cursor: pointer; border: none; background: none; }
+        .btn-nav { background: none; border: none; color: white; cursor: pointer; }
+        .card { background: #161a20; padding: 20px; border-radius: 15px; margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
-    <div id="page-vip" class="page active">
-        <div class="header">NEWMONT PRO - VIP</div>
-        <div class="vip-card"><h3>VIP 1 - 30 USDT</h3><button class="btn" style="background:#3498db; color:white;">فتح المستوى</button></div>
-        <div class="vip-card"><h3>VIP 2 - 80 USDT</h3><button class="btn" style="background:#f1c40f; color:black;">فتح المستوى</button></div>
+    <div id="home" class="page active">
+        <h1>الواجهة الرئيسية</h1>
+        <div class="card">هنا رسم الذهب البياني</div>
     </div>
 
-    <div id="page-team" class="page">
-        <div class="header">فريق الإحالة</div>
-        <div class="vip-card">دعوة الأصدقاء: 15% مكافأة</div>
+    <div id="vip" class="page">
+        <h1>باقات VIP</h1>
+        <div class="card">VIP 1: 55 USDT</div>
     </div>
 
-    <div id="page-home" class="page">
-        <div class="header">الواجهة الرئيسية</div>
-        <div class="vip-card">هنا سيظهر الرسم البياني للذهب</div>
-    </div>
+    <div id="team" class="page"><h1>الفريق</h1></div>
+    <div id="tasks" class="page"><h1>المهام</h1></div>
+    <div id="account" class="page"><h1>حسابي</h1></div>
 
     <div class="navbar">
-        <button class="nav-item" onclick="showPage('page-home')">🏠<br>بيت</button>
-        <button class="nav-item" onclick="showPage('page-team')">👥<br>فريق</button>
-        <button class="nav-item" onclick="showPage('page-vip')">💎<br>VIP</button>
+        <button class="btn-nav" onclick="go('home')">البيت</button>
+        <button class="btn-nav" onclick="go('vip')">VIP</button>
+        <button class="btn-nav" onclick="go('team')">الفريق</button>
+        <button class="btn-nav" onclick="go('tasks')">المهام</button>
+        <button class="btn-nav" onclick="go('account')">الحساب</button>
     </div>
 
     <script>
-        function showPage(pageId) {
-            // إخفاء كل الصفحات
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // إظهار الصفحة المطلوبة
-            document.getElementById(pageId).classList.add('active');
+        function go(id) {
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
         }
     </script>
 </body>
