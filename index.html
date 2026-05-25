@@ -2,56 +2,71 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investing.com | الواجهة</title>
+    <title>Investing.com | منصة التداول</title>
     <style>
-        body { font-family: sans-serif; background-color: #0b0e11; color: white; margin: 0; padding-bottom: 70px; }
-        .header { padding: 20px; text-align: center; color: #00d09c; font-weight: bold; font-size: 20px; border-bottom: 1px solid #333; }
-        
-        /* الرسم البياني */
-        .chart-container { height: 300px; padding: 15px; }
-        
-        /* قسم العملات */
-        .market-section { padding: 20px; }
-        .market-card { background: #1e2329; padding: 15px; border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #333; }
-        
+        body { font-family: sans-serif; background-color: #0b0e11; color: white; margin: 0; padding-bottom: 80px; }
+        .page { display: none; padding: 20px; }
+        .active { display: block; }
+        .header { text-align: center; color: #00d09c; padding: 15px; font-size: 20px; font-weight: bold; }
+        /* تصميم الكروت */
+        .card { background: #1e2329; padding: 15px; border-radius: 12px; margin-bottom: 10px; border: 1px solid #333; }
+        .btn-blue { background: #3498db; color: white; border: none; padding: 10px; width: 100%; border-radius: 8px; font-weight: bold; }
+        .btn-yellow { background: #f1c40f; color: black; border: none; padding: 10px; width: 100%; border-radius: 8px; font-weight: bold; }
         /* القائمة السفلية */
         .navbar { position: fixed; bottom: 0; width: 100%; background: #1a1a1a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #333; }
-        .nav-item { color: #888; text-decoration: none; font-size: 12px; }
+        .nav-btn { color: #888; background: none; border: none; font-size: 14px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="header">الواجهة الرئيسية</div>
-
-    <div class="chart-container">
-        <iframe src="https://www.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=D&theme=dark" width="100%" height="100%"></iframe>
+    <div id="home" class="page active">
+        <div class="header">الواجهة الرئيسية</div>
+        <div style="height: 250px;"><iframe src="https://www.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=D&theme=dark" width="100%" height="100%"></iframe></div>
+        <h3 style="color: #00d09c;">تقلبات السوق</h3>
+        <div class="card">البتكوين: 65,000$ <span style="color:green;">▲ 2%</span></div>
+        <div class="card">اليورو/دولار: 1.08$ <span style="color:red;">▼ 0.5%</span></div>
     </div>
 
-    <div class="market-section">
-        <h3 style="color: #00d09c;">تقلبات السوق الحية</h3>
-        
-        <div class="market-card">
-            <span>البتكوين / دولار</span>
-            <span style="color: #00ff00;">+2.4% ▲</span>
-        </div>
-        <div class="market-card">
-            <span>اليورو / دولار</span>
-            <span style="color: #ff0000;">-0.5% ▼</span>
-        </div>
-        <div class="market-card">
-            <span>الإيثيريوم / دولار</span>
-            <span style="color: #00ff00;">+1.2% ▲</span>
-        </div>
+    <div id="vip" class="page">
+        <div class="header">باقات VIP</div>
+        <div class="card"><h3>VIP 1 - 30 USDT</h3><button class="btn-blue" onclick="alert('عنوان الإيداع: Txyz123...')">فتح المستوى</button></div>
+        <div class="card"><h3>VIP 2 - 80 USDT</h3><button class="btn-yellow" onclick="alert('عنوان الإيداع: Txyz123...')">فتح المستوى</button></div>
+        <div class="card"><h3>VIP 3 - 150 USDT</h3><button class="btn-blue" onclick="alert('عنوان الإيداع: Txyz123...')">فتح المستوى</button></div>
+        <div class="card"><h3>VIP 4 - 300 USDT</h3><button class="btn-yellow" onclick="alert('عنوان الإيداع: Txyz123...')">فتح المستوى</button></div>
+    </div>
+
+    <div id="team" class="page">
+        <div class="header">فريق الإحالة</div>
+        <div class="card">دعوة صديق: احصل على 15% مكافأة فورية عند إيداعه.</div>
+        <div class="card">رابطك: <b>investing.com/ref/123</b></div>
+    </div>
+
+    <div id="tasks" class="page">
+        <div class="header">المهام اليومية</div>
+        <div class="card">مهمة تسجيل الدخول: 1$</div>
+        <div class="card">مهمة التداول: 5$</div>
+    </div>
+
+    <div id="account" class="page">
+        <div class="header">حسابي</div>
+        <div class="card">الرصيد: 0.00$</div>
+        <button class="btn-blue">سحب الأرباح</button>
     </div>
 
     <div class="navbar">
-        <a href="#" class="nav-item">حسابي</a>
-        <a href="#" class="nav-item">الفريق</a>
-        <a href="#" class="nav-item">VIP</a>
-        <a href="#" class="nav-item">مهام</a>
-        <a href="#" class="nav-item">الواجهة</a>
+        <button class="nav-btn" onclick="showPage('account')">حسابي</button>
+        <button class="nav-btn" onclick="showPage('team')">الفريق</button>
+        <button class="nav-btn" onclick="showPage('vip')">VIP</button>
+        <button class="nav-btn" onclick="showPage('tasks')">مهام</button>
+        <button class="nav-btn" onclick="showPage('home')">الواجهة</button>
     </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
