@@ -1,17 +1,73 @@
-<div id="account" class="page">
-    <h2 style="text-align:center;">حسابي</h2>
-    
-    <div class="card" style="text-align:center; background:#1e2329;">
-        <p style="color:#888;">إجمالي الأرباح</p>
-        <h1 style="color:#00d09c;">$120.50</h1>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newmont Pro</title>
+    <style>
+        :root { --bg: #0b0e11; --card: #161a20; --accent: #00d09c; --text: #ffffff; }
+        body { font-family: sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding-bottom: 90px; }
+        .page { display: none; padding: 20px; }
+        .active { display: block; }
+        .header { text-align: center; font-size: 22px; font-weight: bold; color: var(--accent); padding: 15px; }
+        .card { background: var(--card); padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #333; }
+        .btn { width: 100%; padding: 15px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        
+        /* القائمة السفلية */
+        .navbar { position: fixed; bottom: 0; width: 100%; background: #1a1a1a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #333; }
+        .nav-btn { background: none; border: none; color: #888; font-size: 13px; cursor: pointer; text-align: center; }
+        .nav-btn.active { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <div id="home" class="page active">
+        <div class="header">الواجهة الرئيسية</div>
+        <div class="card" style="height: 250px;">رسم الذهب البياني</div>
+        <div class="card">تقلبات السوق: البتكوين $65,000</div>
     </div>
 
-    <div style="display: flex; gap: 10px;">
-        <button class="card" style="flex:1; border:none; background:#3498db; color:white; font-weight:bold;">إيداع</button>
-        <button class="card" style="flex:1; border:none; background:#f1c40f; color:black; font-weight:bold;">سحب</button>
+    <div id="vip" class="page">
+        <div class="header">باقات VIP</div>
+        <div class="card">VIP 1: 50$ <button class="btn" style="background:var(--accent);">اشتراك</button></div>
+        <div class="card">VIP 2: 100$ <button class="btn" style="background:#7b61ff; color:white;">اشتراك</button></div>
     </div>
 
-    <div class="card" style="margin-top:20px; cursor:pointer;" onclick="location.reload()">
-        <span>تسجيل الخروج</span>
+    <div id="team" class="page">
+        <div class="header">فريق الإحالة</div>
+        <div class="card">رابط الدعوة الخاص بك:<br><b>investing.com/ref/user1</b></div>
     </div>
-</div>
+
+    <div id="tasks" class="page">
+        <div class="header">المهام اليومية</div>
+        <div class="card">تسجيل دخول يومي: +1$</div>
+    </div>
+
+    <div id="account" class="page">
+        <div class="header">حسابي</div>
+        <div class="card" style="text-align:center;">الأرباح: 120.50$</div>
+        <div style="display:flex; gap:10px;">
+            <button class="btn" style="background:#3498db; color:white;">إيداع</button>
+            <button class="btn" style="background:#f1c40f; color:black;">سحب</button>
+        </div>
+        <button class="btn" style="background:transparent; border:1px solid #ff4444; color:#ff4444;">تسجيل الخروج</button>
+    </div>
+
+    <div class="navbar">
+        <button class="nav-btn active" onclick="show('home', this)">🏠<br>البيت</button>
+        <button class="nav-btn" onclick="show('vip', this)">💎<br>VIP</button>
+        <button class="nav-btn" onclick="show('team', this)">👥<br>الفريق</button>
+        <button class="nav-btn" onclick="show('tasks', this)">⚙️<br>المهام</button>
+        <button class="nav-btn" onclick="show('account', this)">👤<br>الحساب</button>
+    </div>
+
+    <script>
+        function show(id, btn) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
