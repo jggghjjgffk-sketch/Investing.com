@@ -1,50 +1,17 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>Newmont Pro</title>
-    <style>
-        body { background-color: #0b0e11; color: white; margin: 0; font-family: sans-serif; padding-bottom: 80px; }
-        .page { display: none; padding: 20px; }
-        .active { display: block; }
-        .card { background: #161a20; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #333; }
-        
-        /* القائمة السفلية */
-        .navbar { position: fixed; bottom: 0; width: 100%; background: #1a1a1a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #333; }
-        .nav-btn { background: none; border: none; color: #888; font-size: 14px; cursor: pointer; text-align: center; }
-    </style>
-</head>
-<body>
-
-    <div id="home" class="page active">
-        <h1>الواجهة الرئيسية</h1>
-        <div class="card">هنا رسم الذهب البياني</div>
+<div id="account" class="page">
+    <h2 style="text-align:center;">حسابي</h2>
+    
+    <div class="card" style="text-align:center; background:#1e2329;">
+        <p style="color:#888;">إجمالي الأرباح</p>
+        <h1 style="color:#00d09c;">$120.50</h1>
     </div>
 
-    <div id="vip" class="page">
-        <h1>باقات VIP</h1>
-        <div class="card">VIP 1: 55 USDT</div>
+    <div style="display: flex; gap: 10px;">
+        <button class="card" style="flex:1; border:none; background:#3498db; color:white; font-weight:bold;">إيداع</button>
+        <button class="card" style="flex:1; border:none; background:#f1c40f; color:black; font-weight:bold;">سحب</button>
     </div>
 
-    <div id="team" class="page"><h1>الفريق</h1><div class="card">معلومات الفريق هنا</div></div>
-    <div id="tasks" class="page"><h1>المهام</h1><div class="card">قائمة المهام اليومية</div></div>
-    <div id="account" class="page"><h1>حسابي</h1><div class="card">رصيدك الحالي: 0.00$</div></div>
-
-    <div class="navbar">
-        <button class="nav-btn" onclick="show('home')">البيت</button>
-        <button class="nav-btn" onclick="show('vip')">VIP</button>
-        <button class="nav-btn" onclick="show('team')">الفريق</button>
-        <button class="nav-btn" onclick="show('tasks')">المهام</button>
-        <button class="nav-btn" onclick="show('account')">الحساب</button>
+    <div class="card" style="margin-top:20px; cursor:pointer;" onclick="location.reload()">
+        <span>تسجيل الخروج</span>
     </div>
-
-    <script>
-        function show(pageId) {
-            // إخفاء كل الصفحات
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // إظهار الصفحة المطلوبة فقط
-            document.getElementById(pageId).classList.add('active');
-        }
-    </script>
-</body>
-</html>
+</div>
