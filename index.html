@@ -5,58 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newmont Pro</title>
     <style>
-        body { font-family: sans-serif; background-color: #0b0e11; color: #ffffff; margin: 0; padding-bottom: 80px; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #0b0e11; border-bottom: 1px solid #333; }
-        .title { font-weight: bold; font-size: 18px; color: #fff; }
+        body { font-family: sans-serif; background-color: #0b0e11; color: white; margin: 0; padding-bottom: 80px; }
+        .page { display: none; }
+        .active { display: block; }
+        .header { text-align: center; padding: 20px; font-weight: bold; font-size: 18px; border-bottom: 1px solid #333; }
         
-        /* تصميم كروت الـ VIP */
+        /* كروت الباقات */
         .vip-card { background: #161a20; border: 1px solid #333; border-radius: 15px; padding: 20px; margin: 15px; }
-        .vip-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .btn-open { width: 100%; padding: 12px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .btn { width: 100%; padding: 12px; border-radius: 10px; border: none; font-weight: bold; margin-top: 10px; cursor: pointer; }
         
-        /* ألوان الباقات */
-        .blue-btn { background: #3498db; color: white; }
-        .yellow-btn { background: #f1c40f; color: black; }
-        
-        /* القائمة السفلية */
+        /* القائمة */
         .navbar { position: fixed; bottom: 0; width: 100%; background: #1a1a1a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #333; }
-        .nav-item { color: #888; font-size: 12px; text-align: center; cursor: pointer; }
+        .nav-item { color: #888; font-size: 12px; text-align: center; cursor: pointer; border: none; background: none; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <span>🔔</span>
-        <div class="title">NEWMONT PRO</div>
-        <span>✈️</span>
+    <div id="page-vip" class="page active">
+        <div class="header">NEWMONT PRO - VIP</div>
+        <div class="vip-card"><h3>VIP 1 - 30 USDT</h3><button class="btn" style="background:#3498db; color:white;">فتح المستوى</button></div>
+        <div class="vip-card"><h3>VIP 2 - 80 USDT</h3><button class="btn" style="background:#f1c40f; color:black;">فتح المستوى</button></div>
     </div>
 
-    <div id="vip-section">
-        <div class="vip-card" style="border-color: #00d09c;">
-            <div class="vip-title"><span>VIP 1</span><span>السعر: 30 USDT</span></div>
-            <button class="btn-open blue-btn">فتح المستوى</button>
-        </div>
-        <div class="vip-card">
-            <div class="vip-title"><span>VIP 2</span><span>السعر: 80 USDT</span></div>
-            <button class="btn-open yellow-btn">فتح المستوى</button>
-        </div>
-        <div class="vip-card">
-            <div class="vip-title"><span>VIP 3</span><span>السعر: 150 USDT</span></div>
-            <button class="btn-open blue-btn">فتح المستوى</button>
-        </div>
-        <div class="vip-card">
-            <div class="vip-title"><span>VIP 4</span><span>السعر: 300 USDT</span></div>
-            <button class="btn-open yellow-btn">فتح المستوى</button>
-        </div>
+    <div id="page-team" class="page">
+        <div class="header">فريق الإحالة</div>
+        <div class="vip-card">دعوة الأصدقاء: 15% مكافأة</div>
+    </div>
+
+    <div id="page-home" class="page">
+        <div class="header">الواجهة الرئيسية</div>
+        <div class="vip-card">هنا سيظهر الرسم البياني للذهب</div>
     </div>
 
     <div class="navbar">
-        <div class="nav-item">👤<br>حسابي</div>
-        <div class="nav-item">👥<br>فريق</div>
-        <div class="nav-item" style="color: #fff;">💎<br>VIP</div>
-        <div class="nav-item">⚙️<br>مهام</div>
-        <div class="nav-item">🏠<br>بيت</div>
+        <button class="nav-item" onclick="showPage('page-home')">🏠<br>بيت</button>
+        <button class="nav-item" onclick="showPage('page-team')">👥<br>فريق</button>
+        <button class="nav-item" onclick="showPage('page-vip')">💎<br>VIP</button>
     </div>
 
+    <script>
+        function showPage(pageId) {
+            // إخفاء كل الصفحات
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // إظهار الصفحة المطلوبة
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
